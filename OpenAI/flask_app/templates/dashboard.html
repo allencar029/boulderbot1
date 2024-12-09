@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for
+('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="title-section">
+        <h1> Boulder Bot</h1>
+    </div>
+    <div class="message-box">
+        <textarea class="message-input" placeholder="Enter text here..."></textarea>
+        <button class="send-button" disabled>Ask</button>
+    </div>
+    <div id="button-box" class="hidden">
+        <div id="response"></div>
+        <form action="/ask" method="post" id="form" class="ask">
+            <div class="form_group">
+                <input type="text" id="question" name="question" placeholder="Ask a question...."/>
+            </div>
+            <button class="submit-button"></button>
+        </form>
+    </div>
+    <button id="show-button-box"></button>
+</body>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
