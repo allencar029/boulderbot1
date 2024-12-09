@@ -1,12 +1,14 @@
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,flask
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,flask
+### macOS ###
+.DS_Store
 
 ### Flask ###
 instance/*
 !instance/.gitignore
 .webassets-cache
-.env
+flask_app/.env
 
 ### Flask.Python Stack ###
 # Byte-compiled / optimized / DLL files
