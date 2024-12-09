@@ -26,7 +26,7 @@ body {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 210px;
+    width: 240px;
     padding: 15px;
     background-color: gray;
     color: white;
@@ -48,6 +48,23 @@ body {
     background-size: 20px;
     border: none;
     border-radius: 50px;
+}
+
+.ai_ask {
+    outline: none;
+    background-color: transparent;
+    border: none;
+}
+
+.form_group {
+    display: flex;
+    align-items: flex-end;
+    border: .5px solid #ccc;
+    padding: 5px;
+    border-radius: 10px;
+    gap: 10px; /* Space between textarea and button */
+    width: 100%;
+    max-width: 500px;
 }
 
 .message-box {
