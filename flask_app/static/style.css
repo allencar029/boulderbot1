@@ -35,6 +35,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
     display: none; /* Initially hidden */
+    word-wrap: break-word;
 }
 
 .hidden {
@@ -44,25 +45,39 @@ body {
 .submit-button {
     width: 20px;
     height: 20px;
-    background-image: url('imgs/arrow.png');
+    background-image: url('imgs/Arrow2.PNG');
     background-size: 20px;
     border: none;
     border-radius: 50px;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
 }
 
 .ai_ask {
     outline: none;
     background-color: transparent;
     border: none;
+    color: rgb(255, 255, 255);
+    width: 205px;
+    height: 20px;
+    resize: none;
+    max-height: 150px;
+    font-family: Arial, sans-serif;
+}
+
+.ai_ask::placeholder {
+    color: #ccc;
 }
 
 .form_group {
     display: flex;
+    justify-content: center;
     align-items: flex-end;
     border: .5px solid #ccc;
     padding: 5px;
     border-radius: 10px;
-    gap: 10px; /* Space between textarea and button */
+    gap: 5px; /* Space between textarea and button */
     width: 100%;
     max-width: 500px;
 }

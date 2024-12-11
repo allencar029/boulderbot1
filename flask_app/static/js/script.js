@@ -3,14 +3,23 @@ const responseDiv = document.getElementById('response')
 
 const text = "I answer general questions about bouldering! How can I help you today?"
 
+const question = document.querySelector('.ai_ask')
+
+const originalHeight = '20'
+const originalWidth = '205'
+
 const form = document.getElementById('form')
 form.addEventListener('submit', async (e) => {
     e.preventDefault()
 
-    const question = document.getElementById('question')
+    
 
     const questionValue = `${question.value}`
+
     question.value = '';
+
+    question.style.height = `${originalHeight}px`; // Reset height to original
+    question.style.width = `${originalWidth}px`; 
 
     const loadingMessage = document.createElement('p')
     loadingMessage.textContent = "..."
@@ -65,6 +74,7 @@ function typingEffect(text, message) {
 
 const boxButton = document.getElementById('show-button-box')
 const box = document.getElementById('button-box')
+
 boxButton.addEventListener("click", () => {
     boxButton.classList.add("hidden")
     box.style.display = "block"
@@ -86,4 +96,16 @@ messageInput.addEventListener('input', () => {
 
     // Enable send button if there's text, otherwise disable
     sendButton.disabled = messageInput.value.trim() === "";
+
+});
+
+// Textarea grow for boulderbot section
+
+question.addEventListener('input', () => {
+    console.log('user is typing')
+    question.style.height = '16px'; // Reset height to calculate new height
+    question.style.height = `${question.scrollHeight}px`; // Set to scroll height
+
+    // Enable send button if there's text, otherwise disable
+    sendButton.disabled = question.value.trim() === "";
 });
