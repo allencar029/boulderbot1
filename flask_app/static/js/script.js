@@ -1,4 +1,5 @@
-const greetingMessage = document.createElement('p')
+//DOM element variables
+
 const responseDiv = document.getElementById('response')
 const question = document.querySelector('.ai_ask')
 const questionask = document.getElementById('question')
@@ -6,6 +7,7 @@ const form = document.getElementById('form')
 const boxButton = document.getElementById('show-button-box')
 const box = document.getElementById('button-box')
 const sendButton = document.getElementById('submit-button')
+const closeButton = document.getElementById('exit-boulderBot')
 
 
 function typingEffect(text, message) {
@@ -28,8 +30,17 @@ sendButton.disabled = true //initially disables the submit button.
 boxButton.addEventListener("click", () => {
     boxButton.classList.add("hidden") //hides the box button
     box.style.display = "block" //adds block to box style triggering the box to display. 
+    closeButton.style.display = "block"
+    const greetingMessage = document.createElement('p')
     typingEffect("I answer general questions about bouldering! How can I help you today?", greetingMessage)
     responseDiv.appendChild(greetingMessage)
+})
+
+closeButton.addEventListener("click", () => {
+    boxButton.classList.remove("hidden")
+    box.style.display = "none"
+    closeButton.style.display= "none"
+    responseDiv.replaceChildren()
 })
 
 question.addEventListener('input', () => {
@@ -84,7 +95,6 @@ form.addEventListener('submit', async (e) => {
             const responseMessage = document.createElement('p')
             const responseText = `${data.message}`
             typingEffect(responseText, responseMessage)
-            console.log(responseDiv)
             responseDiv.appendChild(responseMessage)
         } else {
             const responseError = document.createElement('p')
