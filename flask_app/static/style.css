@@ -35,9 +35,6 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
     display: none; /* Initially hidden */
-    /* word-wrap: break-word;
-    max-height: 300px;
-    overflow-y: auto; */
 }
 
 .response{
@@ -50,7 +47,7 @@ body {
     display: none;
 }
 
-.submit-button {
+#submit-button {
     width: 20px;
     height: 20px;
     background-image: url('imgs/Arrow2.PNG');
@@ -90,49 +87,7 @@ body {
     max-width: 500px;
 }
 
-.message-box {
-    display: flex;
-    align-items: flex-end;
-    border: .5px solid #ccc;
-    padding: 5px;
-    border-radius: 10px;
-    gap: 10px; /* Space between textarea and button */
-    width: 100%;
-    max-width: 500px; /* Optional, limit the container's width */
-}
-
-/* Textarea Styling */
-.message-input {
-    flex: 1; /* Allow textarea to take up remaining space */
-    padding: 10px;
-    font-size: 16px;
-    line-height: 1.5;
-    border: none;
-    outline: none;
-    resize: none; /* Disable manual resizing */
-    box-sizing: border-box; /* Include padding in width calculations */
-    height: 44px; /* Initial height */
-    min-height: 16px; /* Minimum height */
-    max-height: 150px; /* Maximum height to prevent excessive growth */
-}
-
-/* Button Styling */
-.send-button {
-    background-color: #007aff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    height: 44px; /* Match initial textarea height */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.send-button:disabled {
-    background: #c7c7c7;
-    cursor: not-allowed;
+#submit-button:disabled {
+    background: transparent;
 }
 

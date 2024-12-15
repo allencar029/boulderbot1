@@ -6,10 +6,21 @@ const text = "I answer general questions about bouldering! How can I help you to
 const question = document.querySelector('.ai_ask')
 const questionask = document.getElementById('question')
 
-
-
-
 const form = document.getElementById('form')
+
+const boxButton = document.getElementById('show-button-box')
+const box = document.getElementById('button-box')
+
+
+const sendButton = document.getElementById('submit-button')
+
+boxButton.addEventListener("click", () => {
+    boxButton.classList.add("hidden")
+    box.style.display = "block"
+    typingEffect(text, greetingMessage)
+    responseDiv.appendChild(greetingMessage)
+    sendButton.disabled = true
+})
 
 questionask.addEventListener('keydown', (e) => {
     console.log('keydown event:', e.key)
@@ -26,6 +37,7 @@ form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const questionValue = `${question.value}`
     question.value = '';
+    sendButton.disabled = true
 
     const originalHeight = '16'
     const originalWidth = '205'
@@ -42,7 +54,7 @@ form.addEventListener('submit', async (e) => {
     responseDiv.appendChild(questionMessage)
     responseDiv.appendChild(loadingMessage)
 
-    responseDiv.scrollTop = responseDiv.scrollHeight; // when populating the response scroll down while populating. 
+    responseDiv.scrollTop = responseDiv.scrollHeight; // when adding the question text and loading response text scroll down also. 
 
     try {
         const response = await fetch('/ask', {
@@ -83,21 +95,11 @@ function typingEffect(text, message) {
             message.textContent += text.charAt(index); // text.charAt fetches the character at the current index from text and appends that character to the existing content of message 
             index++; // increment index 
             setTimeout(typeChar, 0.5); // setTimeout schedules the typeChar function to run again after a delay of 0.5 milliseconds.
-            responseDiv.scrollTop = responseDiv.scrollHeight;
+            responseDiv.scrollTop = responseDiv.scrollHeight; // when populating the response div with the response scroll down as it populates. It does this by setting the vertical scroll position(scroll top) to the total height of the scrollable content inside response div. 
         }
     }
     typeChar(); // this starts the typing progress function for the first time.
 }
-
-const boxButton = document.getElementById('show-button-box')
-const box = document.getElementById('button-box')
-
-boxButton.addEventListener("click", () => {
-    boxButton.classList.add("hidden")
-    box.style.display = "block"
-    typingEffect(text, greetingMessage)
-    responseDiv.appendChild(greetingMessage)
-})
 
 // Textarea grow for boulderbot section
 
