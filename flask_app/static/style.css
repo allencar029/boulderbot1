@@ -35,7 +35,15 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
     display: none; /* Initially hidden */
+    /* word-wrap: break-word;
+    max-height: 300px;
+    overflow-y: auto; */
+}
+
+.response{
     word-wrap: break-word;
+    max-height: 300px;
+    overflow-y: auto;
 }
 
 .hidden {

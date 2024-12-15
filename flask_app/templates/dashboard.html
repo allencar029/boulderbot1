@@ -19,8 +19,9 @@
         <button class="send-button" disabled>Ask</button>
     </div>
     <div id="button-box" class="hidden">
-        <div id="response"></div>
-        <form action="/ask" method="post" id="form" class="ask">
+        <div class="response" id="response">
+        </div>
+        <form id="form" class="ask" method="POST" action="/ask">
             <div class="form_group">
                 <textarea class="ai_ask" type="text" id="question" name="question" placeholder="Ask a question...."></textarea>
                 <button class="submit-button"></button>

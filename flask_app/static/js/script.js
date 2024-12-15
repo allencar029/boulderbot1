@@ -4,19 +4,31 @@ const responseDiv = document.getElementById('response')
 const text = "I answer general questions about bouldering! How can I help you today?"
 
 const question = document.querySelector('.ai_ask')
+const questionask = document.getElementById('question')
 
-const originalHeight = '20'
-const originalWidth = '205'
+
+
 
 const form = document.getElementById('form')
+
+questionask.addEventListener('keydown', (e) => {
+    console.log('keydown event:', e.key)
+    if(e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        console.log('dispatching event')
+        form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }))
+        console.log('hello')
+        console.log(question.value)
+    }
+})
+
 form.addEventListener('submit', async (e) => {
-    e.preventDefault()
-
-    
-
+    e.preventDefault();
     const questionValue = `${question.value}`
-
     question.value = '';
+
+    const originalHeight = '16'
+    const originalWidth = '205'
 
     question.style.height = `${originalHeight}px`; // Reset height to original
     question.style.width = `${originalWidth}px`; 
@@ -29,7 +41,9 @@ form.addEventListener('submit', async (e) => {
     // textContent just adds plain text escaping html tags. 
     responseDiv.appendChild(questionMessage)
     responseDiv.appendChild(loadingMessage)
-    
+
+    responseDiv.scrollTop = responseDiv.scrollHeight; // when populating the response scroll down while populating. 
+
     try {
         const response = await fetch('/ask', {
             method: 'POST',
@@ -43,9 +57,11 @@ form.addEventListener('submit', async (e) => {
         responseDiv.removeChild(loadingMessage)
 
         if (response.ok) {
+            console.log(responseDiv.scrollHeight)
             const responseMessage = document.createElement('p')
             const responseText = `${data.message}`
             typingEffect(responseText, responseMessage)
+            console.log(responseDiv)
             responseDiv.appendChild(responseMessage)
         } else {
             const responseError = document.createElement('p')
@@ -67,6 +83,7 @@ function typingEffect(text, message) {
             message.textContent += text.charAt(index); // text.charAt fetches the character at the current index from text and appends that character to the existing content of message 
             index++; // increment index 
             setTimeout(typeChar, 0.5); // setTimeout schedules the typeChar function to run again after a delay of 0.5 milliseconds.
+            responseDiv.scrollTop = responseDiv.scrollHeight;
         }
     }
     typeChar(); // this starts the typing progress function for the first time.
@@ -81,23 +98,6 @@ boxButton.addEventListener("click", () => {
     typingEffect(text, greetingMessage)
     responseDiv.appendChild(greetingMessage)
 })
-
-
-// Textarea box grow shenanigans
-
-const messageInput = document.querySelector('.message-input');
-const sendButton = document.querySelector('.send-button');
-messageInput.value = '';
-// Automatically adjust textarea height
-messageInput.addEventListener('input', () => {
-    console.log('user is typing')
-    messageInput.style.height = '16px'; // Reset height to calculate new height
-    messageInput.style.height = `${messageInput.scrollHeight}px`; // Set to scroll height
-
-    // Enable send button if there's text, otherwise disable
-    sendButton.disabled = messageInput.value.trim() === "";
-
-});
 
 // Textarea grow for boulderbot section
 

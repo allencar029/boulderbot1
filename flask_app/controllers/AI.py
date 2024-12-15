@@ -33,12 +33,12 @@ def root():
 @app.route('/ask', methods=['POST'])
 def ask_ai():
     data = request.get_json()
-    print(data)
-    question = data.get('text', '')
+    question = data['text']
     if not question.strip(): 
         return jsonify({"error": "No text provided, please ask a question."}), 400
     else:
         response = generate_text(question)
+        print('did it!')
     return jsonify({"message": f"{response}"})
 
 
