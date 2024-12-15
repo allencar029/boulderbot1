@@ -4,8 +4,7 @@ from openai import OpenAI
 from dotenv import load_dotenv
 import os
 
-env_path = os.path.abspath('./OpenAI/flask_app/.env')
-load_dotenv('/Users/carsonallen/Documents/OpenAI_app/OpenAI/flask_app/.env')
+load_dotenv('./flask_app/.env')
 
 api_key = os.getenv("OPENAI_API_KEY")
 client = OpenAI(api_key=api_key)
