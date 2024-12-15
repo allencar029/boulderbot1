@@ -1,11 +1,10 @@
 from flask_app import app
-from flask import render_template, request, redirect, jsonify
+from flask import render_template, request, jsonify
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
 
 env_path = os.path.abspath('./OpenAI/flask_app/.env')
-print(env_path)
 load_dotenv('/Users/carsonallen/Documents/OpenAI_app/OpenAI/flask_app/.env')
 
 api_key = os.getenv("OPENAI_API_KEY")
@@ -38,7 +37,6 @@ def ask_ai():
         return jsonify({"error": "No text provided, please ask a question."}), 400
     else:
         response = generate_text(question)
-        print('did it!')
     return jsonify({"message": f"{response}"})
 
 
