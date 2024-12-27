@@ -27,6 +27,8 @@ function typingEffect(text, message) {
 
 sendButton.disabled = true //initially disables the submit button.
 
+//button when clicked displays the boulderbot
+
 boxButton.addEventListener("click", () => {
     boxButton.classList.add("hidden") //hides the box button
     box.style.display = "block" //adds block to box style triggering the box to display. 
@@ -35,6 +37,8 @@ boxButton.addEventListener("click", () => {
     typingEffect("I answer general questions about bouldering! How can I help you today?", greetingMessage)
     responseDiv.appendChild(greetingMessage)
 })
+
+//Button when clicked closes the boulderbot. 
 
 closeButton.addEventListener("click", () => {
     boxButton.classList.remove("hidden")
@@ -91,11 +95,12 @@ form.addEventListener('submit', async (e) => {
         responseDiv.removeChild(loadingMessage)
 
         if (response.ok) {
-            console.log(responseDiv.scrollHeight)
+            console.log(box.offsetHeight)
             const responseMessage = document.createElement('p')
             const responseText = `${data.message}`
             typingEffect(responseText, responseMessage)
             responseDiv.appendChild(responseMessage)
+            console.log(box.offsetHeight)
         } else {
             const responseError = document.createElement('p')
             const responseErrorText = `${data.error}`

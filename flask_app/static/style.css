@@ -12,14 +12,14 @@ body {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    padding: 10px 20px;
+    padding: 15px 15px;
     background-color: gray;
     color: white;
     border: 2px solid black;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
     font-size: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 #button-box {
@@ -32,9 +32,13 @@ body {
     color: white;
     border-radius: 10px;
     border: 2px solid black;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     text-align: center;
-    display: none; /* Initially hidden */
+    display: none;
+}
+
+#exit-boulderBot {
+    
 }
 
 .response{
