@@ -37,8 +37,13 @@ body {
     display: none;
 }
 
-#exit-boulderBot {
-    
+#biggerbox {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 240px;
+    padding: 15px;
+    display: none;
 }
 
 .response{

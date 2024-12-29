@@ -17,7 +17,11 @@ function typingEffect(text, message) {
     function typeChar() { //character typing function
         if (index < text.length) { // if index is less than the length of text execute
             message.textContent += text.charAt(index) // text.charAt fetches the character at the current index from text and appends that character to the existing content of message 
-            index++; // increment index 
+            index++ // increment index 
+            console.log(box.offsetHeight)
+            const height = box.offsetHeight+10
+            // console.log(height)
+            biggerbox.style.height = `${height}px`
             setTimeout(typeChar, 0.5) // setTimeout schedules the typeChar function to run again after a delay of 0.5 milliseconds.
             responseDiv.scrollTop = responseDiv.scrollHeight // when populating the response div with the response scroll down as it populates. It does this by setting the vertical scroll position(scroll top) to the total height of the scrollable content inside response div. 
         }
@@ -29,13 +33,21 @@ sendButton.disabled = true //initially disables the submit button.
 
 //button when clicked displays the boulderbot
 
+const biggerbox = document.getElementById('biggerbox')
+
 boxButton.addEventListener("click", () => {
     boxButton.classList.add("hidden") //hides the box button
     box.style.display = "block" //adds block to box style triggering the box to display. 
+    biggerbox.style.display = "block"
     closeButton.style.display = "block"
     const greetingMessage = document.createElement('p')
     typingEffect("I answer general questions about bouldering! How can I help you today?", greetingMessage)
     responseDiv.appendChild(greetingMessage)
+    // const height = box.offsetHeight
+    // // console.log(height)
+    // const newheight = height+50
+    // biggerbox.style.height = `${newheight}px`
+    // // console.log(biggerbox.offsetHeight)
 })
 
 //Button when clicked closes the boulderbot. 
@@ -51,6 +63,9 @@ question.addEventListener('input', () => {
     question.style.height = '16px' // Reset height to calculate new height
     question.style.height = `${question.scrollHeight}px` // Set to scroll height
     sendButton.disabled = question.value.trim() === "" // If there is text in the input enable the send button if not disable the send button
+    const height = box.offsetHeight+10
+    // console.log(height)
+    biggerbox.style.height = `${height}px`
 })
 
 questionask.addEventListener('keydown', (e) => {
@@ -58,6 +73,9 @@ questionask.addEventListener('keydown', (e) => {
     if(e.key === 'Enter' && !e.shiftKey) {
         e.preventDefault();
         form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }))
+        const height = box.offsetHeight+10
+        // console.log(height)
+        biggerbox.style.height = `${height}px`
     }
 })
 

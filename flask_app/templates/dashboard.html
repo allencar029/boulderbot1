@@ -14,17 +14,19 @@
     <div class="title-section">
         <h1> Boulder Bot</h1>
     </div>
-    
-    <div id="button-box" class="hidden">
+    <div id="biggerbox" class="hidden">
         <button id="exit-boulderBot" class="hidden">X</button>
-        <div class="response" id="response">
-        </div>
-        <form id="form" class="ask" method="POST" action="/ask">
-            <div class="form_group">
-                <textarea class="ai_ask" type="text" id="question" name="question" placeholder="Ask a question...."></textarea>
-                <button id="submit-button"></button>
+        <div id="button-box" class="hidden">
+
+            <div class="response" id="response">
             </div>
-        </form>
+            <form id="form" class="ask" method="POST" action="/ask">
+                <div class="form_group">
+                    <textarea class="ai_ask" type="text" id="question" name="question" placeholder="Ask a question...."></textarea>
+                    <button id="submit-button"></button>
+                </div>
+            </form>
+        </div>
     </div>
     <button id="show-button-box"></button>
 </body>
