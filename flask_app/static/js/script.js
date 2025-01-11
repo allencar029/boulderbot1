@@ -112,7 +112,7 @@ form.addEventListener('submit', async (e) => {
         const data = await response.json()
         responseDiv.removeChild(loadingMessage)
 
-        if (response.ok) {
+        if (response.ok) { // checks to see if response from backend is good then proceeds
             console.log(box.offsetHeight)
             const responseMessage = document.createElement('p')
             const responseText = `${data.message}`
