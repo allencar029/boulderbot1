@@ -104,3 +104,8 @@ body {
     padding-top: 5px;
     background-color: rgb(128, 128, 128);
 }
+
+#exit-boulderBot {
+    position: fixed;
+    right: 20px;
+}
