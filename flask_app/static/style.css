@@ -109,6 +109,13 @@ body {
     position: fixed;
     right: 275px;
     font-size: 16px;
+    /* height: 22px;
+    width: 22px; */
     border-radius: 50px;
-    background-color: blue;
+    background-color:rgb(37, 142, 221);
+    border: none;
+}
+
+#exit-boulderBot:hover {
+    background-color: rgb(31, 119, 186);
 }
