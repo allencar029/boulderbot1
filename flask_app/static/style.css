@@ -114,6 +114,7 @@ body {
     border-radius: 50px;
     background-color:rgb(37, 142, 221);
     border: none;
+    color: white;
 }
 
 #exit-boulderBot:hover {
